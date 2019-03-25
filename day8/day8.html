@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day5</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background: #3498db;
+            color: #fff;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .model {
+            width:50px;
+            height:50px;
+            position: absolute;
+            top:-25px;
+            left:-25px;
+            background: white;
+        }
+        @keyframes route1{
+            10% {
+                transform: rotate(360deg)
+            }
+            20% {
+                width: 10px;
+                height:50px;
+                transform: translateY(-100px);
+            }
+            30% {
+                height:10px;
+                transform: translateY(-100px) rotate(360deg);
+                width:50px;
+            }
+            40% {
+                width: 10px;
+                height:10px;
+                transform: translateY(-100px);
+            }
+            50% {
+                width: 50px;
+                height:10px;
+                transform: translateY(-100px);
+            }
+            60% {
+                width: 50px;
+                height:10px;
+                transform: translateY(-10px) rotate(360deg);
+            }
+            70% {
+                width: 50px;
+                height:10px;
+                transform: translateY(-10px) translateX(-20px);
+            }
+            80% {
+                width: 50px;
+                height:10px;
+                transform: translateY(-10px) translateX(20px);
+            }
+            90% {
+                width: 10px;
+                height:50px;
+                transform: translateY(-50px)
+            }
+            100% {
+                width: 10px;
+                height:50px;
+                transform: translateY(-300px)
+            }
+        }
+        @keyframes route2{
+            10% {
+                transform: rotate(360deg)
+            }
+            20% {
+                width: 10px;
+                height:50px;
+                transform: translateY(100px);
+            }
+            30% {
+                height:10px;
+                transform: translateY(100px) rotate(-360deg);
+                width:50px;
+            }
+            40% {
+                width: 10px;
+                height:10px;
+                transform: translateY(100px);
+            }
+            50% {
+                width: 50px;
+                height:10px;
+                transform: translateY(100px);
+            }
+            60% {
+                width: 50px;
+                height:10px;
+                transform: translateY(50px) rotate(-360deg);
+            }
+            70% {
+                width: 50px;
+                height:10px;
+                transform: translateY(50px) translateX(20px);
+            }
+            80% {
+                width: 50px;
+                height:10px;
+                transform: translateY(50px) translateX(-20px);
+            }
+            90% {
+                width: 10px;
+                height:50px;
+                transform: translateY(20px)
+            }
+            100% {
+                width: 10px;
+                height:50px;
+                transform: translateY(300px)
+            }
+        }
+        @keyframes route3{
+            10% {
+                transform: rotate(360deg)
+            }
+            20% {
+                width: 50px;
+                transform: translateX(100px);
+            }
+            30% {
+                height:10px;
+                transform: translateX(100px) rotate(-360deg);
+                width:50px;
+            }
+            40% {
+                width: 10px;
+                height:10px;
+                transform: translateX(100px);
+            }
+            50% {
+                width: 10px;
+                height:50px;
+                transform: translateX(100px);
+            }
+            60% {
+                width: 10px;
+                height:50px;
+                transform: translateX(50px) rotate(-360deg);
+            }
+            70% {
+                width: 10px;
+                height:50px;
+                transform: translateX(50px) translateY(20px);
+            }
+            80% {
+                width: 10px;
+                height:50px;
+                transform: translateX(50px) translateY(-20px);
+            }
+            90% {
+                width: 50px;
+                height:10px;
+                transform: translateX(20px)
+            }
+            100% {
+                width: 50px;
+                height:10px;
+                transform: translateX(-300px)
+            }
+        }
+        @keyframes route4{
+            10% {
+                transform: rotate(360deg)
+            }
+            20% {
+                width: 50px;
+                transform: translateX(-100px);
+            }
+            30% {
+                height:10px;
+                transform: translateX(-100px) rotate(-360deg);
+                width:50px;
+            }
+            40% {
+                width: 10px;
+                height:10px;
+                transform: translateX(-100px);
+            }
+            50% {
+                width: 10px;
+                height:50px;
+                transform: translateX(-100px);
+            }
+            60% {
+                width: 10px;
+                height:50px;
+                transform: translateX(-20px) rotate(-360deg);
+            }
+            70% {
+                width: 10px;
+                height:50px;
+                transform: translateX(-20px) translateY(-20px);
+            }
+            80% {
+                width: 10px;
+                height:50px;
+                transform: translateX(-20px) translateY(20px);
+            }
+            90% {
+                width: 50px;
+                height:10px;
+                transform: translateX(-60px)
+            }
+            100% {
+                width: 50px;
+                height:10px;
+                transform: translateX(300px)
+            }
+        }
+        .model1 {
+            animation: route1 5s ease;
+        }
+        .model2 {
+            animation: route2 5s ease;
+        }
+        .model3 {
+            animation: route3 5s ease;
+        }
+        .model4 {
+            animation: route4 5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="model model1"></div>
+            <div class="model model2"></div>
+            <div class="model model3"></div>
+            <div class="model model4"></div>
+        </div>
+    </div>
+</body>
+</html>
