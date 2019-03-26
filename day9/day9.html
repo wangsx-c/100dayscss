@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day9</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background: #3498db;
+            color: #fff;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .bars {
+          width: 100%;
+          display: flex;
+        }
+        .bar {
+          height: 400px;
+          width: 25%;
+          transition: all .5s ease ;
+          position: relative;
+          text-transform: uppercase;
+        }
+        .bar1 {
+          background: #34495e
+        }
+        .bar3 {
+          background: #34495e
+        }
+        .bar2 {
+          background: #e67e22;
+        }
+        .bar4 {
+          background: #e67e22;
+        }
+        .bar1:hover {
+          width: 100%;
+        }
+        .bar2:hover {
+          width: 100%;
+        }
+        .bar3:hover {
+          width: 100%;
+        }
+        .bar4:hover {
+          width: 100%;
+        }
+        .bar span {
+          position: absolute;
+          top:50%;
+          left:50%;
+          transform: translate(-50% -50%) scale(0.5);
+          color: transparent;
+          transition: all .5s ease ;
+        }
+        .bar:hover span{
+          color: #fff;
+				  transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+      <div class="bars">
+        <div class="bar bar1">
+          <span>first</span>
+        </div>
+        <div class="bar bar2">
+            <span>second</span>
+        </div>
+        <div class="bar bar3">
+            <span>third</span>
+        </div>
+        <div class="bar bar4">
+            <span>forth</span>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
