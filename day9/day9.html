@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day9</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background: #3498db;
+            color: #fff;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .top {
+            background: #9B59B6;
+            height:270px;
+            width: 100%;
+            position: relative;
+        }
+        .bottom {
+            background: #49627C;
+            height: 130px;
+            width: 100%;
+        }
+        .ball {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background: white;
+            position: absolute;
+            top: 230px;
+            left: 400px;
+            animation: ball 3s cubic-bezier(0.38, 0, 1, 1) infinite
+        }
+        .ballmove {
+            animation: ballmove 3s ease-out infinite
+        }
+        .balldown {
+            animation: balldown 3s cubic-bezier(0.38, 0, 1, 1) infinite
+        }
+        .ballup {
+            animation: ballup 3s cubic-bezier(0, 0, 0.38, 1) infinite
+        }
+        @keyframes ballmove{
+            100% {
+                transform: translateX(-460px)
+            }
+        }
+        @keyframes ball {
+            0%, 19%, 25%, 49%, 55%, 79%, 85%, 100% {
+                transform: scale(1);
+            }
+            20%, 80%, 50%, 80% {
+                transform: scale(1.1, 0.9);
+            }
+        }
+        @keyframes balldown {
+            0%{
+                transform: translateY(-200px);
+            }
+            20%, 35% {
+                transform: translateY(0);
+            }
+            50%, 65% {
+                transform: translateY(105px);
+            }
+            80%, 95% {
+                transform: translateY(168px);
+            }
+            100%{
+                transform: translateY(190px);
+            }
+        }
+        @keyframes ballup {
+            0%, 20% {
+                transform: translateY(0);
+            }
+            35%, 50% {
+                transform: translateY(-105px);
+            }
+            65%, 80% {
+                transform: translateY(-168px);
+            }
+            90%, 100% {
+                transform: translateY(-190px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="">
+            <div class="top">
+                <div class="ballmove">
+                    <div class="balldown">
+                        <div class="ballup">
+                            <div class="ball"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+</body>
+</html>
