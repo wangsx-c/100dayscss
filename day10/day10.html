@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day10</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background: #3498db;
+            color: #fff;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .front {
+            position: absolute;
+            top:0px;
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 46px;
+            font-weight: 600;
+            line-height: 46px;
+            color: #34495E;
+            background: #fff;
+            border: 2px solid #fff;
+            backface-visibility: hidden;
+        }
+        .back {
+            position: absolute;
+            top:0px;
+            transform: rotateX(180deg);
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 46px;
+            font-weight: 600;
+            line-height: 46px;
+            background: #64C760;
+            color: #fff;
+            border: 2px solid #fff;
+            backface-visibility: hidden;
+        }
+        .button {
+            position:relative;
+            transition: all 1s;
+            transform-origin: 50% 50%;
+            transform-style: preserve-3d;
+            width: 100px;
+            height: 50px;
+        }
+        .button.done{
+            transform: rotateX(180deg)
+        }
+        .button.send{
+            transform: rotateX(0deg)
+        }
+        .front:active {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="button">
+                <div class="front">send</div>
+                <div class="back">done</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let button = document.getElementsByClassName('button')[0]
+        let front = document.getElementsByClassName('front')[0]
+        front.addEventListener('click', (event) => {
+            button.classList.remove('send')
+            button.classList.add('done')
+        })
+        let back = document.getElementsByClassName('back')[0]
+        back.addEventListener('click', (event) => {
+            button.classList.remove('done')
+            button.classList.add('send')
+        })
+    </script>
+</body>
+</html>
