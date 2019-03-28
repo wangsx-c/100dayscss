@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day10_css</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background: #3498db;
+            color: #fff;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .front {
+            position: absolute;
+            top:0px;
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 46px;
+            font-weight: 600;
+            line-height: 46px;
+            color: #34495E;
+            background: #fff;
+            border: 2px solid #fff;
+            backface-visibility: hidden;
+            transition: all 1s ease-in-out;
+        }
+        .back {
+            position: absolute;
+            top:0px;
+            transform: rotateX(180deg);
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            text-align: center;
+            line-height: 46px;
+            font-weight: 600;
+            line-height: 46px;
+            background: #64C760;
+            color: #fff;
+            border: 2px solid #fff;
+            backface-visibility: hidden;
+            transition: all 1s ease-in-out;
+        }
+        .button {
+            position:relative;
+            transition: all 1s;
+            transform-origin: 50% 50%;
+            transform-style: preserve-3d;
+            width: 100px;
+            height: 50px;
+        }
+        .button input {
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            border: 2px solid #fff;
+            opacity: 0;
+            position: absolute;
+            top: 0px;
+            z-index: 3;
+        }
+        .button input:checked ~ .front {
+            transform: rotateX(180deg)
+        }
+        .button input:checked ~ .back {
+            transform: rotateX(0deg)
+        }
+        .button input ~ .front {
+            transform: rotateX(0deg)
+        }
+        .button input ~ .back {
+            transform: rotateX(180deg)
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="button">
+                <input type="checkbox">
+                <div class="front">send</div>
+                <div class="back">done</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
