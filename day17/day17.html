@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day17</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background: #34495e;
+            color: #fff;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .center {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .loader {
+            transform-style: preserve-3d;
+            transform: rotateX(-25deg) rotateY(45deg);
+            transition: all 0.5s ease-in-out
+        }
+        .loader:hover {
+            transform: rotateX(-25deg) rotateY(45deg) translateY(-10px)
+        }
+        .loader:hover .bottom {
+            box-shadow: -22px -22px 30px 0 rgba(0,0,0,.4);
+        }
+        .part {
+            width: 120px;
+            height: 120px;
+            background: rgba(0,0,0,.1);
+        }
+        .bottom {
+            transform: rotateX(-90deg) translateZ(60px);
+            background: rgba(46,204,113,0.8);
+            box-shadow: -8px -8px 10px 0 rgba(0,0,0,.4);
+            transition: all 0.5s ease-in-out
+        }
+        .back {
+            position: absolute;
+            top:0px;
+            transform: translateZ(-60px)
+        }
+        .back::after {
+            content: '';
+            position: absolute;
+            top:0px;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            background: rgba(46,204,113,0.8);
+			transform-origin: 50% 100%;
+            animation: fill 3s ease-in-out infinite alternate;
+        }
+        .front {
+            position: absolute;
+            top:0px;
+            transform: translateZ(60px)
+        }
+        .front::after {
+            content: '';
+            position: absolute;
+            top:0px;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            background: rgba(46,204,113,0.8);
+			transform-origin: 50% 100%;
+            animation: fill 3s ease-in-out infinite alternate;
+        }
+        .left {
+            position: absolute;
+            top:0px;
+            transform: translateX(60px) rotateY(90deg)
+        }
+        .left::after {
+            content: '';
+            position: absolute;
+            top:0px;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            background: rgba(46,204,113,0.8);
+			transform-origin: 50% 100%;
+            animation: fill 3s ease-in-out infinite alternate;
+        }
+        .right {
+            position: absolute;
+            top:0px;
+            transform: translateX(-60px) rotateY(90deg)
+        }
+        .right::after {
+            content: '';
+            position: absolute;
+            top:0px;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            background: rgba(46,204,113,0.8);
+			transform-origin: 50% 100%;
+            animation: fill 3s ease-in-out infinite alternate;
+        }
+        .top {
+            position: absolute;
+            top:0px;
+            transform: translateY(-60px) rotateX(90deg);
+            opacity: .5;
+        }
+        @keyframes fill {
+            0%,25% {
+                transform: scaleY(0);
+            }
+            75%, 100% {
+                transform: scaleY(1);
+            }
+        }
+        .fillUp {
+            position: absolute;
+            top:0px;
+            transform: rotateX(90deg);
+            background: rgba(46,204,113,0.8);
+            animation: fillUp 3s ease-in-out infinite alternate;
+        }
+        @keyframes fillUp {
+            0%,25% {
+                transform: rotateX(90deg) translateZ(-60px)
+            }
+            75%, 100% {
+                transform: rotateX(90deg) translateZ(59px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="loader">
+                    <div class="part bottom"></div>
+                    <div class="part back"></div>
+                    <div class="part front"></div>
+                    <div class="part left"></div>
+                    <div class="part right"></div>
+                    <div class="part top"></div>
+                    <div class="part fillUp"></div>
+                </div>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
