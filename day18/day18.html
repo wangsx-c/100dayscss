@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day18</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background: #34495e;
+            color: #fff;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .center {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .balls {
+            transform: rotate(75deg)
+        }
+        .balls_right {
+            transform: rotate(-75deg)
+        }
+        .ball {
+            width: 10px;
+            height:10px;
+            border-radius: 5px;
+            background: #fff;
+            position: absolute;
+            top:0px;
+        }
+        .ball1 {
+            top: -50px;
+            animation: ball1 1s ease-in-out infinite alternate;
+        }
+        .ball2 {
+            top: 50px;
+            animation: ball2 1s ease-in-out infinite alternate;
+        }
+        .ball3 {
+            left: -50px;
+            animation: ball3 1s ease-in-out infinite alternate;
+        }
+        .ball4 {
+            left: 50px;
+            animation: ball4 1s ease-in-out infinite alternate;
+        }
+        @keyframes ball1 {
+            0% {
+                transform: translateX(-45px)
+            }
+            100% {
+                transform: translateX(45px)
+            }
+        }
+        @keyframes ball2 {
+            0% {
+                transform: translateX(45px)
+            }
+            100% {
+                transform: translateX(-45px)
+            }
+        }
+        @keyframes ball3 {
+            0% {
+                transform: translateY(-45px)
+            }
+            100% {
+                transform: translateY(45px)
+            }
+        }
+        @keyframes ball4 {
+            0% {
+                transform: translateY(45px)
+            }
+            100% {
+                transform: translateY(-45px)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="balls">
+                <div class="ball ball1"></div>
+                <div class="ball ball2"></div>
+                <div class="ball ball3"></div>
+                <div class="ball ball4"></div>
+            </div>
+            <div class="ball ball1"></div>
+            <div class="ball ball2"></div>
+            <div class="ball ball3"></div>
+            <div class="ball ball4"></div>
+            <div class="balls_right">
+                <div class="ball ball1"></div>
+                <div class="ball ball2"></div>
+                <div class="ball ball3"></div>
+                <div class="ball ball4"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
