@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day20</title>
+    <style>
+        .frame {
+            position: absolute;
+            topdiv: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-topdiv: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+                box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+                overflow: hidden;
+            background: #fff;
+            color: #333;
+                font-family: 'Open Sans', Helvetica, sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 0px;
+            }
+            .bk {
+                width:80px;
+                height:80px;
+                background:green;
+                margin:0 auto;
+                display: inline-block;
+                position: relative;
+            }
+            .bk:hover {
+                background:fff;
+            }
+            .bk:hover::after {
+                content: '';
+                width: 400px;
+                position: absolute;
+                background:red;
+                height: 1px;
+                top:50%;
+                right:0px;
+                margin-right:-480px;
+                z-index: 50;
+            }
+            .bk:hover::before {
+                content: '';
+                width: 400px;
+                position: absolute;
+                background:red;
+                height: 1px;
+                top:50%;
+                left:0px;
+                margin-left:-480px;
+                z-index: 50;
+            }
+            .influence::after {
+                content: '';
+                width: 400px;
+                position: absolute;
+                background:red;
+                height: 1px;
+                top:50%;
+                right:0px;
+                margin-right:-400px;
+                z-index: 50;
+            }
+            .influence::before {
+                content: '';
+                width: 400px;
+                position: absolute;
+                background:red;
+                height: 1px;
+                top:50%;
+                left:0px;
+                margin-left:-400px;
+                z-index: 50;
+            }
+            /* .line {
+                position: absolute;
+                width: 100%;
+                display: none;
+            }
+            .line::before {
+                content: '';
+                width: 50%;
+                position: absolute;
+                background:red;
+                height: 1px;
+                left:0px;
+                margin-left:-40px;
+            }
+            .line::after {
+                content: '';
+                width: 50%;
+                position: absolute;
+                background:red;
+                height: 1px;
+                right:0px;
+                margin-right:-40px;
+            } */
+            .white {
+                background:#fff
+            }
+            /* .line1 {
+                top:40px;
+            }
+            .line2 {
+                top:120px;
+            }
+            .line3 {
+                top:200px;
+            }
+            .line4 {
+                top:280px;
+            }
+            .line5 {
+                top:360px;
+            }
+            .bk1:hover ~ .line1 {
+                display: block;
+            }
+            .bk2:hover ~ .line2 {
+                display: block;
+            }
+            .bk3:hover ~ .line3 {
+                display: block;
+            }
+            .bk4:hover ~ .line4 {
+                display: block;
+            }
+            .bk5:hover ~ .line5 {
+                display: block;
+            } */
+    </style>
+    <script>
+        var topdiv = null,bottom = null,left = null,right = null,middle = null
+        function moseover(el) {
+            var index = el.classList[1].split('bk')[1]
+            topdiv = document.getElementsByClassName('bk'+ (Number(index) - 5))
+            if (topdiv.length !== 0) {
+                topdiv = topdiv[0]
+            } else {
+                topdiv = null
+            }
+            bottom = document.getElementsByClassName('bk'+ (Number(index) + 5))
+            if (bottom.length !== 0) {
+                bottom = bottom[0]
+            } else {
+                bottom = null
+            }
+            middle = document.getElementsByClassName('bk'+ (Number(index)))
+            if (middle.length !== 0) {
+                middle = middle[0]
+            } else {
+                middle = null
+            }
+            if (Number(index) % 5 !== 1) {
+                left = document.getElementsByClassName('bk'+ (Number(index) - 1))
+                if (left.length !== 0) {
+                    left = left[0]
+                } else {
+                    left = null
+                }
+            }
+            if (Number(index) % 5 !== 0) {
+                right = document.getElementsByClassName('bk'+ (Number(index) + 1))
+                if (right.length !== 0) {
+                    right = right[0]
+                } else {
+                    right = null
+                }
+            }
+            middle.classList.add('white')
+            if (topdiv) {
+                topdiv.classList.add('white')
+                topdiv.classList.add('influence')
+            }
+            if (bottom) {
+                bottom.classList.add('white')
+                bottom.classList.add('influence')
+            }
+            if (left) {
+                left.classList.add('white')
+            }
+            if (right) {
+                right.classList.add('white')
+            }
+        }
+        function moseout(event) {
+            middle.classList.remove('white')
+            if (topdiv) {
+                topdiv.classList.remove('white')
+                topdiv.classList.remove('influence')
+            }
+            if (bottom) {
+                bottom.classList.remove('white')
+                bottom.classList.remove('influence')
+            }
+            if (left) {
+                left.classList.remove('white')
+            }
+            if (right) {
+                right.classList.remove('white')
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="frame">
+        <div class="bk bk1" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk2" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk3" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk4" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk5" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>
+        <div class="bk bk6" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk7" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk8" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk9" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk10" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>
+        <div class="bk bk11" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk12" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk13" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk14" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk15" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>
+        <div class="bk bk16" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk17" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk18" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk19" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk20" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>
+        <div class="bk bk21" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk22" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk23" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk24" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>        
+        <div class="bk bk25" onmouseover="moseover(this)" onmouseout="moseout(this)"></div>
+        <div class="line line1"></div>       
+        <div class="line line2"></div>       
+        <div class="line line3"></div>       
+        <div class="line line4"></div>       
+        <div class="line line5"></div>       
+    </div>    
+</body>
+</html>
