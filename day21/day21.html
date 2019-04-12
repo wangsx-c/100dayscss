@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day21</title>
+    <style>
+        .frame {
+            position: absolute;
+            topdiv: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-topdiv: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #F57E15;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .bar {
+            width:120px;
+            height:120px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* background: #D1DDE5; */
+            margin-top:-160px;
+            margin-left:-70px;
+            border: 10px solid #D1DDE5;
+            border-radius: 60px 60px 0px 0px;
+            box-shadow: inset 4px 4px 1px 0 rgba(255, 255, 255, 0.8), inset -3px -2px 1px 0 rgba(0, 0, 0, 0.3), 4px 8px 12px 0 rgba(0, 0, 0, 0.2);
+        }
+        .inside {
+            width: 120px;
+            height: 90px;
+            margin: 0 auto;
+            border-radius: 50px 50px 0px 0px;
+            padding-left: 2px;
+            box-shadow: 4px 4px 1px 0 rgba(255, 255, 255, 0.8), -3px -2px 1px 0 rgba(0, 0, 0, 0.3), inset 4px 8px 12px 0 rgba(0, 0, 0, 0.2);
+        }
+        .watch-panel {
+            width:150px;
+            height:150px;
+            background: #333;
+            border-radius:50%;
+            position: relative;
+            transform: rotate(0deg);
+            transition: all 2s ease-in-out;
+            border: 10px solid #D1DDE5;
+        }
+        .watch-panel:hover {
+            transform: rotate(360deg);
+        }
+        .line {
+            width: 2px;
+            height:20px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top:-10px;
+            margin-left:-2px;
+        }
+        .line1 {
+            transform: translateY(-60px)
+        }
+        .line2 {
+            transform: translateX(60px) rotate(90deg)
+        }
+        .line3 {
+            transform: translateY(60px)
+        }
+        .line4 {
+            transform: translateX(-60px) rotate(90deg)
+        }
+        .point {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background:grey;
+            width: 40px;
+            height: 40px;
+            margin-left:-20px;
+            margin-top:-20px;
+            border-radius: 50%
+        }
+        .number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color:#fff;
+            font-size: 13px;
+            width: 20px;
+            height: 20px;
+            text-align: center;            
+        }
+        .number1 {
+            transform: translateY(-40px);
+            margin-left: -10px;
+            margin-top: -10px;
+        }
+        .number2 {
+            transform: translateX(40px);
+            margin-top: -10px;
+            margin-left: -10px
+        }
+        .number3 {
+            transform: translateY(40px);
+            margin-top: -10px;
+            margin-left: -10px
+        }
+        .number4 {
+            transform: translateX(-40px);
+            margin-top: -10px;
+            margin-left: -10px
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="bar">
+                <div class="inside"></div>
+            </div>
+            <div class="watch-panel">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+                <div class="line line4"></div>
+                <div class="number number1">12</div>
+                <div class="number number2">3</div>
+                <div class="number number3">6</div>
+                <div class="number number4">9</div>
+                <div class="point"></div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
