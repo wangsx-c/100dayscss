@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day23</title>
+    <style>
+        .frame {
+            position: absolute;
+            topdiv: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-topdiv: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #F57E15;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .ears .left{
+            width: 60px;
+            height: 60px;
+            background: #FFB7BC;
+            border:10px solid #F7949A;
+            position: absolute;
+            top:0px;
+            border-radius: 10px;
+            z-index: 1;
+            transform: skew(30deg) rotate(13deg);
+        }
+        .ears .right{
+            width: 60px;
+            height: 60px;
+            background: #FFB7BC;
+            border:10px solid #F7949A;
+            position: absolute;
+            top:0px;
+            right:0px;
+            border-radius: 10px;
+            z-index: 1;
+            transform: skew(-30deg) rotate(-13deg);
+        }
+        .face {
+            width:200px;
+            height:200px;
+            background: #F7949A;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+        .eyes .left {
+            width: 22px;
+            height:22px;
+            background:#fff;
+            position: absolute;
+            top:50%;
+            margin-top:-22px;
+            right:44px;
+            border-radius: 50%;
+            animation: eays 2s ease-in-out 3s infinite;
+        }
+        .eyes .left::after {
+            content:'';
+            width:6px;
+            height:6px;
+            background:#000;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -3px;
+            margin-top: -3px;
+            border-radius: 50%;
+        }
+        .eyes .right {
+            width: 22px;
+            height:22px;
+            background:#fff;
+            position: absolute;
+            top:50%;
+            margin-top:-22px;
+            left:44px;
+            border-radius: 50%;
+            animation: eays 2s ease-in-out 3s infinite;
+        }
+        .eyes .right::before {
+            content:'';
+            width:6px;
+            height:6px;
+            background:#000;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -3px;
+            margin-top: -3px;
+            border-radius: 50%;
+        }
+        @keyframes eays {
+            0%, 100%{
+                transform: rotateX(0deg)
+            }
+            50% {
+                transform: rotateX(90deg)
+            }
+        }
+        .nose {
+            height: 50px;
+            width: 60px;
+            background: #FFB7BC;
+            position: absolute;
+            top:70%;
+            margin-left:-30px;
+            left:50%;
+            margin-top:-25px;
+            border-radius: 80px/70px;
+        }
+        .nose::before {
+            background: #CE666D;
+            content:'';
+            width:6px;
+            height:6px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            margin-left: -3px;
+            margin-top: -3px;
+            border-radius: 50%;
+        }
+        .nose::after {
+            background: #CE666D;
+            content:'';
+            width:6px;
+            height:6px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 30%;
+            margin-right: -3px;
+            margin-top: -3px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="pig">
+                <div class="ears">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="face">
+                    <div class="eyes">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="nose"></div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
