@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day25</title>
+    <style>
+        .frame {
+            position: absolute;
+            topdiv: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-topdiv: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #F57E15;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .head {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background: #fff;
+            margin:0 auto;
+        }
+        .core {
+            padding-top:10px;
+        }
+        .body {
+            width: 60px;
+            height: 100px;
+            background: #fff
+        }
+        .legs .left {
+            width: 28px;
+            height:100px;
+            background: #fff;
+            display: inline-block;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+        }
+        .legs .right {
+            width: 28px;
+            height:100px;
+            background: #fff;
+            display: inline-block;
+            margin-left:4px;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+        }
+        .core {
+            position: relative;
+        }
+        .core .arms {
+            position: absolute;
+            top:0px;
+        }
+        .core .arms.left .up {
+            width: 20px;
+            height:50px;
+            background: #fff;
+            transform: rotate(15deg) translateY(12px) translateX(-12px);
+            border-top-left-radius: 13px
+        }
+        .core .arms.left .down {
+            width: 20px;
+            height:50px;
+            background: #fff;
+            transform: rotate(5deg) translateY(6px) translateX(-22px);
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .core .arms.right {
+            right:0px;
+            transform-origin: 50% 50%;
+        }
+        .core .arms.right .up {
+            width: 20px;
+            height:60px;
+            background: #fff;
+            transform: rotate(-70deg) translateY(22px) translateX(12px);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .core .arms.right .down {
+            width: 20px;
+            height:50px;
+            background: #fff;
+            transform: rotate(35deg);
+            position: absolute;
+            top:-6px;
+            left:52px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            animation: arms_down 2s ease-in-out infinite alternate;
+        }
+        .core .arms.right {
+            animation: arms 2s ease-in-out infinite alternate;
+        }
+        @keyframes arms {
+            0% {
+                transform: rotate(15deg)
+            }
+            100% {
+                transform: rotate(-15deg)
+            }
+        }
+        @keyframes arms_down {
+            0% {
+                transform: rotate(35deg)
+            }
+            100% {
+                transform: rotate(0deg)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="people">
+                <div class="head"></div>
+                <div class="core">
+                    <div class="left arms">
+                        <div class="up"></div>
+                        <div class="down"></div>
+                    </div>
+                    <div class="body"></div>
+                    <div class="right arms">
+                        <div class="up"></div>
+                        <div class="down"></div>
+                    </div>
+                </div>
+                <div class="legs">
+                    <div class="left">
+                    </div>
+                    <div class="right">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
