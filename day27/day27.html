@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day27</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #F57E15;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .word {
+            width: 300px;
+        }
+        .light {
+            background: #fff
+        }
+        .e,.n,.d {
+            position: relative;
+            display: inline-block;
+            width: 70px;
+            height:100px;
+            padding-left:20px;
+        }
+        .e .light.left {
+            width: 10px;
+            height:100px;
+            border-radius: 4px;
+            position: absolute;
+            left:0px;top:0px;
+            animation: flickr 6s ease-in-out infinite alternate
+        }
+        .e .light.top {
+            width: 40px;
+            height:10px;
+            border-radius: 4px;
+            position: absolute;
+            left:12px;
+            top:0px;
+            animation: flickr 5.8s .2s ease-in-out infinite alternate
+        }
+        .e .light.middle {
+            width: 40px;
+            height:10px;
+            border-radius: 4px;
+            position: absolute;
+            left:12px;
+            top:45px;
+            animation: flickr 5.7s .3s ease-in-out infinite alternate
+        }
+        .e .light.bottom {
+            width: 40px;
+            height:10px;
+            border-radius: 4px;
+            position: absolute;
+            left:12px;
+            top:90px;
+            animation: flickr 5.6s .4s ease-in-out infinite alternate
+        }
+        .n .left {
+            width: 10px;
+            height:100px;
+            border-radius: 4px;
+            position: absolute;
+            left:0px;top:0px;
+        }
+        .n .middle {
+            width: 10px;
+            height:110px;
+            border-radius: 4px;
+            position: absolute;
+            left:34px;top:-4px;
+            transform: rotate(-25deg)
+        }
+        .n .right {
+            width: 10px;
+            height:100px;
+            border-radius: 4px;
+            position: absolute;
+            left:68px;top:0px;
+        }
+        .d .left {
+            width: 10px;
+            height:100px;
+            border-radius: 4px;
+            position: absolute;
+            left:0px;top:0px;
+        }
+        .d {
+            overflow: hidden;
+        }
+        .d .right {
+            position: absolute;
+            left:20px;top:0px;
+        }
+        .d .circleBox {
+            width: 80px;
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        .d .circle {
+            width: 80px;
+            height:80px;
+            border-radius: 50%;
+            border: 10px solid #fff;
+            position: absolute;
+            left:-50px;top:0px;
+            z-index: 1;
+        }
+        .light.dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            z-index:2;
+        }
+        .d .topDotBox .dot {
+            top: 0px;
+            left: -4px
+        }
+        .d .bottomDotBox .dot {
+            bottom: 0px;
+            left: -4px
+        }
+        @keyframes flickr {
+            35%, 37%, 39%, 41%, 100% {
+                background: #F1F4F5;
+                box-shadow: 0px 0px 10px 0px #F1F4F5;
+            }
+            0%, 34%, 36%, 36%, 38%, 40% {
+                background: #1A1E24;
+                box-shadow: 0px 0px 6px 0px #1A1E24;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="word">
+                <div class="e">
+                    <div class="light left"></div>
+                    <div class="light top"></div>
+                    <div class="light middle"></div>
+                    <div class="light bottom"></div>
+                </div>
+                <div class="n">
+                    <div class="light left"></div>
+                    <div class="light middle"></div>
+                    <div class="light right"></div>
+                </div>
+                <div class="d">
+                    <div class="light left"></div>
+                    <div class="right">
+                        <div class="circleBox">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="topDotBox">
+                            <div class="light dot"></div>
+                        </div>
+                        <div class="bottomDotBox">
+                            <div class="light dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
