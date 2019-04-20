@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day26</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #F57E15;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        a {
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .number {
+            height:100px;
+        }
+        .n-1-0 {
+            height: 40px;
+    width: 20px;
+            background: #fff;
+            display: inline-block;
+            position: absolute;
+            transform: translateX(-12px) translateY(0px) rotate(45deg);
+            z-index:5;
+            border-radius: 3px;
+            box-shadow: 0 0 13px 0 rgba(0,0,0,0.2);
+        }
+        .n-1-1 {
+            height: 100px;
+            width: 24px;
+            background: #fff;
+            display: inline-block;
+            position: absolute;
+            z-index:6;
+            border-radius: 3px;
+            box-shadow: 0 0 13px 0 rgba(0,0,0,0.2);
+        }
+        .n-0-1 {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: 24px solid #fff;
+            display: inline-block;
+            left: 17px;
+            box-shadow: 0 0 13px 0 rgba(0,0,0,0.2);
+            position: absolute;
+            z-index:4
+        }
+        .n-0-2 {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: 24px solid #fff;
+            display: inline-block;
+            box-shadow: 0 0 13px 0 rgba(0,0,0,0.2);
+            position: absolute;
+            z-index:3;
+            left: 100px;
+        }
+        .mid {
+            font-size: 82px;
+        }
+        .small {
+            font-size: 23px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+           <div class="number">
+            <div class="n-1-0"></div>
+            <div class="n-1-1"></div>
+            <div class="n-0-1"></div>
+            <div class="n-0-2"></div>
+        </div>
+           <a class="mid">days</a><br>
+           <a class="small">css challenge</a>
+        </div>
+    </div>    
+</body>
+</html>
