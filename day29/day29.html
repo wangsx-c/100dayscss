@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day29</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #F57E15;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+        }
+        .dark {
+            background: rgba(0,0,0,0.2);
+            border-radius: 50%;
+            width:600px;
+            height:600px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-top:-300px;
+            margin-left:-300px;
+            animation: darkDisappearReback 1s ease-in-out both
+        }
+        .active .dark {
+            animation: darkDisappear 1s ease-in-out both
+        }
+        @keyframes darkDisappear {
+            100% {
+                transform: scale(0)
+            }
+        }
+        @keyframes darkDisappearReback {
+            0% {
+                transform: scale(0)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+        .point {
+            width: 40px;
+            height:40px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left:-20px;
+            margin-top:-20px;
+            background: greenyellow;
+            cursor: pointer;
+            animation: pointRotateReback 1s ease-in-out both
+        }
+        .active .point {
+            animation: pointRotate 1s ease-in-out both
+        }
+        @keyframes pointRotateReback {
+            0% {
+                transform: rotate(360deg);
+                border-radius: 50%;
+            }
+            100% {
+                transform: rotate(0deg);
+                border-radius: 0px;
+            }
+        }
+        @keyframes pointRotate {
+            100% {
+                transform: rotate(360deg);
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="dark"></div>
+            <div class="point"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            let center = document.getElementsByClassName('center')[0]
+            let point = document.getElementsByClassName('point')[0]
+            point.addEventListener('click', ()=> {
+                if (center.classList.contains('active')) {
+                    center.classList.remove('active')
+                } else {
+                    center.classList.add('active')
+                }
+            })
+        }
+    </script>
+</body>
+</html>
