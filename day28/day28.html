@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day28</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #F57E15;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .top {
+            width: 60px;
+            height:10px;
+            background: #fff;
+            animation: topmove 1s ease-in-out both
+        }
+        .mid {
+            width: 60px;
+            height:10px;
+            background: #fff;
+            margin-top:10px;
+            animation: display 0.2s ease-in-out both
+        }
+        .bottom {
+            width: 60px;
+            height:10px;
+            background: #fff;
+            margin-top:10px;
+            animation: bottommove 1s ease-in-out both
+        }
+        .button {
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+        }
+        .active .mid {
+            animation: displayreback 0.2s .8s ease-in-out both;
+            transform:scale(0)
+        }
+        @keyframes display {
+            100% {
+                transform: scale(0);
+            }
+        }
+        @keyframes displayreback {
+            0%,60% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .active .top {
+            animation: topmoverebaack 1s ease-in-out
+        }
+        @keyframes topmove {
+            20%,40% {
+                transform: translateY(20px)
+            }
+            60%,100% {
+                transform: translateY(20px) rotate(45deg)
+            }
+        }
+        @keyframes topmoverebaack {
+            0%,20%,40% {
+                transform: translateY(20px) rotate(45deg)
+            }
+            60%{
+                transform: translateY(20px) rotate(0deg)
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg)
+            }
+        }
+        .active .bottom {
+            animation: bottommovereback 1s ease-in-out
+        }
+        @keyframes bottommove {
+            20%,40% {
+                transform: translateY(-20px)
+            }
+            60%,100% {
+                transform: translateY(-20px) rotate(-45deg)
+            }
+        }
+        @keyframes bottommovereback {
+            0%,20%,40% {
+                transform: translateY(-20px) rotate(-45deg)
+            }
+            60% {
+                transform: translateY(-20px) rotate(0)
+            }
+            100% {
+                transform: translateY(0px) rotate(0)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="button">
+                <div class="top"></div>
+                <div class="mid"></div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            let button = document.getElementsByClassName('button')[0]
+            button.addEventListener('click', ()=> {
+                if (button.classList.contains('active')) {
+                    button.classList.remove('active')
+                } else {
+                    button.classList.add('active')
+                }
+            })
+        }
+    </script>
+</body>
+</html>
