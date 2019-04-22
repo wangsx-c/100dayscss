@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day30</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #2c3e50;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+        }
+        .right {
+            position: absolute;
+            border-style: solid;
+            border-width: 80px 80px 80px 80px;
+			border-color: transparent #2B82BB transparent transparent;
+            right: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(50%);
+            animation: rightMove 1s cubic-bezier(.95,.63,.6,1.28) infinite alternate;
+        }
+        .left {
+            position: absolute;
+            border-style: solid;
+            border-width: 80px 80px 80px 80px;
+			border-color: transparent transparent transparent #2B82BB;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            animation: LeftMove 1s cubic-bezier(.95,.63,.6,1.28) infinite alternate;
+        }
+        .top {
+            position: absolute;
+            border-style: solid;
+            border-width: 80px 80px 80px 80px;
+			border-color: #2B82BB transparent transparent transparent;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            animation: topMove 1s cubic-bezier(.95,.63,.6,1.28) infinite alternate;
+        }
+        .bottom {
+            position: absolute;
+            border-style: solid;
+            border-width: 80px 80px 80px 80px;
+			border-color: transparent transparent #2B82BB transparent;
+            right: 50%;
+            bottom: 50%;
+            transform: translateY(50%) translateX(50%);
+            animation: bottomMove 1s cubic-bezier(.95,.63,.6,1.28) infinite alternate;
+        }
+        @keyframes topMove {
+            100% {
+                top: 10px
+            }
+        }
+        @keyframes LeftMove {
+            100% {
+                left: 10px
+            }
+        }
+        @keyframes rightMove {
+            100% {
+                right: 10px
+            }
+        }
+        @keyframes bottomMove {
+            100% {
+                bottom: 10px
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+                <div class="top"></div>
+                <div class="left"></div>
+                <div class="bottom"></div>
+                <div class="right"></div>
+            </div>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>
