@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day32
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #2c3e50;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .static {
+            height: 220px;
+            width: 280px;
+            background: #fff;
+            border-radius: 3px;
+            box-shadow: 10px 10px 15px 0 rgba(0,0,0,0.3);
+        }
+        .wordPanel {
+            height: 60px;
+            width: 100%;
+            background: #F1BA64;
+            color: #fff;
+        }
+        .large {
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .small {
+            font-size:12px;
+            font-weight: 700;
+        }
+        .firstLine {
+            padding:10px;
+            padding-bottom:0px;
+        }
+        .secondLine {
+            padding:10px;
+            padding-top:0px; 
+        }
+        .dataPanel {
+            height: 81px;
+            width: 260px;
+            margin:0 auto;
+        }
+        .badges {
+            padding:12px;
+            color: #000;
+            font-size:9px;
+            height: 13px;
+        }
+        .badge {
+            float:right;
+        }
+        .badge::before {
+            content: '';
+            width:10px;
+            height:2px;
+            background:#000;
+            display: inline-block;
+            margin-bottom:2px;
+            margin-right:4px;
+        }
+        .badge + .badge {
+            padding-right:20px;
+        }
+        .badge.linered::before {
+            background:red
+        }
+        .badge.lineblue::before {
+            background:blue
+        }
+        svg 
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        polyline {
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+        .red polyline {
+            stroke: red;
+        }
+        .blue polyline {
+            stroke: blUE;
+        }
+        .lineMap {
+            position: relative;
+        }
+        .data-zone {
+            height: 40px;
+            width: 100%;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        .data-zone +  .data-zone{
+            border-top: 0px solid #ccc;
+        }
+        .point {
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .red .point {
+            background:red
+        }
+        .red .point1 { left: 7px; top: 43px; }
+        .red .point2 { left: 48px; top: 9px; }
+        .red .point3 { left: 88px; top: 20px; }
+        .red .point4 { left: 128px; top: 8px; }
+        .red .point5 { left: 169px; top: 35px; }
+        .red .point6 { left: 209px; top: 45px; }
+        .red .point7 { left: 249px; top: 16px; }
+        .tooltip {
+            position: absolute;
+            color:#fff;
+            background: red;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 11px;
+            line-height: 11px;
+            padding: 8px 6px;
+            transform: translate3d(-50%, 10px, 0);
+            bottom: 20px;
+            left: 50%;
+            display: none;
+            height: 100%;
+        }
+        .red .point:hover .tooltip{
+            display: inline-block;
+            box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+        .red .point:hover .tooltip::after{
+            content: '';
+            display: inline-block;
+            border:6px solid red;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            margin-left: 3px;
+        }
+        .date {
+            font-size: 12px;
+            color:#ccc;
+            padding-top:10px;
+        }
+        .date div {
+            display: inline-block;
+        }
+        .date div+div {
+            padding-left:12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+           <div class="static">
+            <div class="wordPanel">
+                <div class="firstLine">
+                    <span class="large">WEEKLY REPORT</span>
+                    <span class="small" style="float:right">revenue</span>
+                </div>
+                <div class="secondLine">
+                    <span class="small">01.Feb - 07.Feb</span>
+                    <span class="large" style="float:right">$3621.79</span>
+                </div>
+            </div>
+            <div class="dataPanel">
+                <div class="badges">
+                    <span class="badge linered">Purchases</span>
+                </div>
+                <div class="lineMap">
+                    <div class="data-zone">
+                    </div>
+                    <div class="data-zone">
+                    </div>
+                    <div class="red">
+                        <svg>
+                            <polyline points="9,46 50,12 90,23 130,11 171,38 211,48 251,19"></polyline>
+                        </svg>
+                        <div class="point point1">
+                            <div class="tooltip">458</div>
+                        </div>
+                        <div class="point point2">
+                            <div class="tooltip">812</div>
+                        </div>
+                        <div class="point point3">
+                            <div class="tooltip">746</div>
+                        </div>
+                        <div class="point point4">
+                            <div class="tooltip">877</div>
+                        </div>
+                        <div class="point point5">
+                            <div class="tooltip">517</div>
+                        </div>
+                        <div class="point point6">
+                            <div class="tooltip">434</div>
+                        </div>
+                        <div class="point point7">
+                            <div class="tooltip">458</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="date">
+                    <div>MON</div>
+                    <div>TUE</div>
+                    <div>WED</div>
+                    <div>THU</div>
+                    <div>FRI</div>
+                    <div>SAT</div>
+                    <div>SUN</div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>
