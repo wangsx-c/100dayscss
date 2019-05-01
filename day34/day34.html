@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day34</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #2c3e50;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 320px;
+            transform: translate(-50%, -50%);
+        }
+        .card {
+            border-radius: 3px;
+            box-shadow: 10px 10px 15px 0 rgba(0,0,0,0.3);
+        }
+        .profile {
+            width: 200px;
+            height: 320px;
+            background: #fff;
+            display: inline-block;
+            vertical-align: top
+        }
+        .profile .image {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin: 38px auto 0 auto;
+        }
+        .profile .image img{
+            border-radius: 50%;
+        }
+        .profile .image .circle {
+            width: 70px;
+            height: 70px;
+            border: 1px solid #786450;
+            position: absolute;
+            top:0px;
+            left:0px;
+            border-radius: 50%;
+            transition: all 1s ease-in-out;
+        }
+        .profile .image .circle-2 {
+            width: 90px;
+            height: 90px;
+            left:50%;
+            top:50%;
+            margin-left:-45px;
+            margin-top: -45px;
+            border-right-color: transparent;
+        }
+        .profile .image .circle-1 {
+            width: 80px;
+            height: 80px;
+            left:50%;
+            top:50%;
+            margin-left:-40px;
+            margin-top: -40px;
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+        .profile:hover .image .circle-1 {
+            transform: rotate(180deg)
+        }
+        .profile:hover .image .circle-2 {
+            transform: rotate(-180deg)
+        }
+        .info {
+            display: inline-block;
+            background: #fff;
+            vertical-align: top
+        }
+        .info .box {
+            background: #F5E8DF;
+            width: 120px;
+		    height: 100px;
+            color: #786450;
+            text-align: center;
+            transition: all .3s ease-in-out;
+            cursor:pointer;
+        }
+        .info .box:hover {
+            background: #E1CFC2
+        }
+        .info .box+.box {
+            margin-top:10px;
+        }
+        .info .box .desc {
+            font-size: 12px
+        }
+        .info .box .title {
+            font-size: 16px;
+            font-weight: 800;
+            padding-top: 28px;
+        }
+        .userinfo {
+            padding-top: 20px;
+            font-size: 16px;
+            text-align: center;
+            color: #786450;
+        }
+        .userinfo .job {
+            font-size:14px;
+        }
+        .userinfo .name {
+            font-weight:700;
+        }
+        .action {
+            padding-top:20px;
+            font-size: 14px;
+            color: #786450;
+        }
+        .action .btn {
+            display: block;
+            text-align: center;
+        }
+        .btn span {
+            width: 120px;
+            display: inline-block;
+            border: 1px solid #786450;
+            height: 28px;
+            line-height: 28px;
+            border-radius: 12px;
+            background: #fff;
+            transition: all .3s ease-in-out;
+        }
+        .btn span:hover {
+            background: #786450;
+            color: white;
+            cursor: pointer
+        }
+        .action .btn + .btn{
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="card">
+                <div class="profile">
+                    <div class="image">
+                        <div class="circle circle-1"></div>
+                        <div class="circle circle-2"></div>
+                        <img src="http://100dayscss.com/codepen/jessica-potter.jpg" width="70" height="70" alt="Jessica Potter">
+                    </div>
+                    <div class="userinfo">
+                        <span class="name">Jessica Potter</span><br>
+                        <span class="job">Visual Artist</span>
+                    </div>
+                    <div class="action">
+                        <div class="btn">
+                            <span>Follow</span></div>
+                        <div class="btn"><span>Message</span></div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="box posts">
+                            <div class="title">523</div>
+                            <div class="desc">Posts</div>
+                        </div>
+                    <div class="box likes">
+                        <div class="title">1387</div>
+                        <div class="desc">Likes</div>
+                    </div>
+                    <div class="box follower">
+                        <div class="title">146</div>
+                        <div class="desc">Follower</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>
