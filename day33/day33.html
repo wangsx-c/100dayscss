@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day33</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #2c3e50;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .word {
+            width: 300px;
+            font-size: 24px;
+            color:#fff;
+            line-height: 35px;
+            margin: 20px 0px;
+        }
+        .word::before {
+            content: '”';
+            font-size:240px;
+            position: absolute;
+            left: -34px;
+            top: 74px;
+            color:#fff;
+            opacity: 0.4;
+        }
+        .author {
+            font-weight: 300;
+            font-style: italic;
+            font-size: 20px;
+            line-height: 28px;
+            color:#fff
+        }
+        .obsession {
+            display: inline-block;
+            background:#4CB6DE;
+            position: relative;
+        }
+        .obsession:hover .tooltips {
+            display: block;
+        }
+        .tooltips {
+            position: absolute;
+            top:0px;
+            width: 300px;
+            margin-top:50px;
+            font-size: 16px;
+            text-align: left;
+            display: none;
+            left: -150px;
+        }
+        .tooltips .title {
+            background: #fff;
+            color:#4CB6DE
+        }
+        .tooltips .title span {
+            padding-left:20px;
+            padding-right:20px;
+        }
+        .tooltips .inner {
+            background: #4CB6DE;
+        }
+        .tooltips .inner span {
+            padding-left:20px;
+            padding-right:20px;
+            display: inline-block;
+        }
+        .tooltips::after {
+            content: '';
+            position: absolute;
+            border:10px solid #fff;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            top: 0px;
+            margin-top: -20px;
+            right: 84px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+           <div class="word">
+                I know quite certainly that I myself have no special talent; curiosity, 
+                <span class="obsession">
+                obsession
+                <div class="tooltips">
+                    <div class="title">
+                        <span>[əbˈseʃ(ə)n]</span>
+                    </div>
+                    <div class="inner">
+                            <span>Obsession, a persistent disturbing preoccupation with an often unreasonable idea or feeling.</span>
+                    </div>
+                </div>
+                </span> and dogged endurance, combined with self-criticism have brought me to my ideas.
+           </div>
+           <div class="author">
+                Albert Einstein
+           </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>
