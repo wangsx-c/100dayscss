@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day39</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: linear-gradient(to top right, #3A92AF 0%, #5CA05A 100%);
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            width: 300px;
+            height:300px;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            border-radius: 3px;
+        }
+        .panel {
+            height: 300px;
+            position: absolute;
+            width: 300px;
+            background: #fff;
+            border-radius: 3px;
+            box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            transition: all .5s ease-in-out;
+            overflow: hidden;
+        }
+        .panel.active {
+            transform: translateX(170px)
+        }
+        .console {
+            width: 170px;
+            position: absolute;
+            height: 270px;
+            background: #43627D;
+            border-radius: 3px;
+            top:14px;
+            z-index: 1;
+        }
+        .console li {
+            padding: 18px 17px;
+            list-style: none;
+            font-size: 14px;
+            line-height: 14px;
+            cursor: pointer;
+            color: #93B2CD;
+        }
+        .console li:hover {
+            color: #fff;
+            background: #385269;
+        }
+        .console ul {
+            margin: 0;
+            padding: 10px 0;
+        }
+        .title {
+            height:60px;
+            text-align: center;
+            font-size: 18px;
+            width: 100%;
+            line-height: 60px;
+            color: #fff;
+            background: #5F98CD;
+        }
+        .title .more {
+            float:left;
+            padding-left:12px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .title .sreach_btn {
+            float:right;
+            padding-right:12px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .title .sreach {
+            width: 212px;
+            height: 34px;
+            border-radius: 17px;
+            border: none;
+            background: #fff;
+            padding: 0 17px;
+            top: 14px;
+            left: 8px;
+            position: absolute;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all .5s ease-in-out
+        }
+        .title .sreach input {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            width: 90%;
+            border: none;
+            background: transparent;
+            padding: 11px;
+            overflow: hidden;
+        }
+        .title .sreach.active {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+        .tips {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+        .tips .line {
+            width: 3px;
+            position: absolute;
+            top:0px;
+            bottom:0px;
+            background: #EBEBEB;
+            left: 27px;
+        }
+        .tips .tip {
+            margin: 25px 20px 25px 43px;
+            color:#000;
+            font-size: 16px;
+            position: relative;
+        }
+        .tip .time {
+            font-size: 11px;
+            line-height: 11px;
+            margin-bottom: 2px;
+        }
+        .tip p {
+            margin:0px;
+        }
+        .tips .circle {
+            box-sizing: border-box;
+            position: absolute;
+            height: 11px;
+            width: 11px;
+            background: #fff;
+            border: 2px solid #5F98CD;
+            box-shadow: 0 0 0 3px #fff;
+            border-radius: 6px;
+            top: 0;
+            left: -20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="panel">
+                <div class="title">
+                    <div class="more">
+                        更多
+                    </div>
+                    Notifications
+                    <div class="sreach">
+                        <input type="text" placeholder="search"/>
+                    </div>
+                    <div class="sreach_btn">
+                        搜索
+                    </div>
+                </div>
+                <div class="tips">
+                    <div class="line"></div>
+                    <div class="tip">
+                        <div class="circle"></div>
+                        <span class="time">9:24am</span>
+                        <p>John Walker posted a photo on your wall.</p>
+                    </div>
+                    <div class="tip">
+                        <div class="circle"></div>
+                        <span class="time">9:24am</span>
+                        <p>John Walker posted a photo on your wall.</p>
+                    </div>
+                    <div class="tip">
+                        <div class="circle"></div>
+                        <span class="time">9:24am</span>
+                        <p>John Walker posted a photo on your wall.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="console">
+                <ul>
+                    <li>第一项</li>
+                    <li>第二项</li>
+                    <li>第三项</li>
+                    <li>第四项</li>
+                    <li>第五项</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var more = document.getElementsByClassName('more')[0]
+        var sreach = document.getElementsByClassName('sreach')[0]
+        var myConsole = document.getElementsByClassName('console')[0]
+        var panel = document.getElementsByClassName('panel')[0]
+        var sreach_btn = document.getElementsByClassName('sreach_btn')[0]
+        more.addEventListener('click', ()=>{
+            if(panel.classList.contains('active')) {
+                panel.classList.remove('active')
+            } else {
+                panel.classList.add('active')
+            }
+        })
+        sreach_btn.addEventListener('click', ()=>{
+            if(sreach.classList.contains('active')) {
+                sreach.classList.remove('active')
+            } else {
+                sreach.classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>
