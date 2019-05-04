@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day38</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: linear-gradient(to top right, #3A92AF 0%, #5CA05A 100%);
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+        }
+        .center {
+            position: absolute;
+            width: 300px;
+            height: 260px;
+            top: 70px;
+            left: 50px;
+            background: #fff;
+            box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+        .title {
+            width: 100%;
+            height:50px;
+            line-height: 50px;
+            font-size: 16px;
+            color: #000;
+            text-align: center;
+        }
+        .upload {
+            position: relative;
+            height: 140px;
+        }
+        .input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            width: 100%;
+        }
+        .upload-zone {
+            width: 98px;
+            height: 78px;
+            border: 1px dashed #A4A4A4;
+            border-radius: 4px;
+            line-height: 105px;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 46px;
+        }
+        .upload_icon {
+        }
+        .button {
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+            background: green;
+            font-size: 16px;
+            color:#fff;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 20px;
+            position: relative;
+            z-index: 4;
+            cursor: pointer;
+        }
+        .filename {
+            font-size: 16px;
+            line-height: 16px;
+            display: block;
+        }
+        .progressive {
+            height:2px;
+            width: 100%;
+        }
+        .progressive .bar {
+            height: 100%;
+            width: 0%;
+            background: green;
+            transition: all 1s ease-in-out
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="title">
+                Drop file to upload
+            </div>
+            <div class="progressive">
+                <div class="bar"></div>
+            </div>
+            <div class="content">
+                <div class="upload-zone">
+                    <img src="./upload.svg" class="upload_icon">
+                    <span class="filename"></span>
+                    <input type="file" class="input">
+                </div>
+            </div>
+            <div class="button">
+                upload file
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var upload_icon = document.getElementsByClassName('upload_icon')[0]
+        var filename = document.getElementsByClassName('filename')[0]
+        var button = document.getElementsByClassName('button')[0]
+        var bar = document.getElementsByClassName('bar')[0]
+        document.getElementsByClassName('input')[0].addEventListener('change', (event)=>{
+            let file = event.target.files[0]
+            filename.innerHTML = file.name
+            upload_icon.style.display = 'none'
+        })
+        button.addEventListener('click', () => {
+            button.innerHTML = 'uplaoding'
+            setTimeout(()=>{
+                bar.style.width="33%"
+            },1000)
+            setTimeout(()=>{
+                bar.style.width="66%"
+            },2000)
+            setTimeout(()=>{
+                bar.style.width="100%"
+            },3000)
+            setTimeout(()=>{
+                button.innerHTML = 'done' 
+            }, 3000)
+        })
+    </script>
+</body>
+</html>
