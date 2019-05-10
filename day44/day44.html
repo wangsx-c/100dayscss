@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day43</title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: black;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            border-radius: 3px;
+        }
+        .halfcircle {
+            width: 100px;
+            height: 50px;
+            background: black;
+            overflow: hidden;
+            position: relative;
+        }
+        .halfcircle.top .cicle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: yellow;
+            overflow: hidden;
+            position: absolute;
+        }
+        .halfcircle.top {
+            animation: topMove .5s ease-in-out infinite alternate
+        }
+        .halfcircle.bottom .cicle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: yellow;
+            overflow: hidden;
+            position: absolute;
+            bottom:0px;
+        }
+        .halfcircle.bottom {
+            animation: topBottom .5s ease-in-out infinite alternate
+        }
+        @keyframes topMove {
+            100% {
+                transform: rotateZ(-20deg)
+            }
+        }
+        @keyframes topBottom {
+            100% {
+                transform: rotateZ(20deg)
+            }
+        }
+        .eye {
+            width: 20px;
+            height:20px;
+            background: brown;
+            border-radius: 50%;
+            position: absolute;
+            right:20px;
+            top:20px;
+            z-index: 1;
+        }
+        .beans {
+            width: 300px;
+            height: 20px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            margin-top: -10px;
+            text-align: right;
+            overflow: hidden;
+        }
+        .bean {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background:yellow;
+            display: inline-block;
+            position: absolute;
+            right:-20px;
+            animation: beanMove 5s ease-in infinite
+        }
+        @keyframes beanMove {
+            100% {
+                transform: translateX(-300px)
+            }
+        }
+        .bean2 {
+            animation-delay: 1s
+        }
+        .bean3 {
+            animation-delay: 2s
+        }
+        .bean4 {
+            animation-delay: 3s
+        }
+        .bean5 {
+            animation-delay: 4s
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="halfcircle top">
+                <div class="eye"></div>
+                <div class="cicle"></div>
+            </div>
+            <div class="halfcircle bottom">
+                <div class="cicle"></div>
+            </div>
+            <div class="beans">
+                <div class="bean bean1"></div>
+                <div class="bean bean2"></div>
+                <div class="bean bean3"></div>
+                <div class="bean bean4"></div>
+                <div class="bean bean5"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>
