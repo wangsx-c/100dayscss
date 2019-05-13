@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day47
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: green;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
+        .button {
+            width: 200px;
+            height: 60px;
+            border-radius: 25px;
+            border:2px solid #fff;
+            line-height: 60px;
+            text-align: center;
+            font-size:25px;
+            text-transform: uppercase;
+            color:#fff;
+            cursor: pointer;
+            background: green;
+            user-select: none;
+            transition: all .3s ease-in-out;
+            position: relative;
+            z-index: 2
+        }
+        .button:hover {
+            filter: grayscale(50%);
+        }
+        .button.active {
+            width: 60px;
+            opacity: 0;
+            font-size:0px;
+            transform-origin: 50% 50%;
+        }
+        .loading {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background:#fff;
+            position: absolute;
+            margin-top: -27px;
+            margin-left: -27px;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            z-index: 1;
+            text-align: center;
+            cursor: pointer;
+        }
+        .button.active ~ .loading {
+            opacity: 1;
+            z-index: 4;
+            border: 2px solid transparent;
+            opacity: 1;
+            animation: loading .1s ease-in-out 4s forwards
+        }
+        @keyframes loading {
+            100% {
+                border-color:#37BE77;
+                z-index: 6;
+            }
+        }
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -28px;
+            margin-left: -28px;
+            opacity: 0;
+            transform: rotate(-90deg);
+            width: 62px;
+            height: 62px;
+        }
+        svg circle {
+            position: absolute;
+            stroke-dasharray: calc(29*2*3.14);
+            stroke-width: 2px;
+            stroke-linecap: round;
+            stroke: #000;
+            fill: none;
+            transform-origin: 50% 50%;
+        }
+        .button.active ~ svg circle {
+            animation: one 4s ease-in-out forwards;
+        }
+        .button.active ~ svg {
+            z-index: 5;
+            opacity: 1;
+        }
+        @keyframes one {
+            from {
+                stroke-dashoffset: calc(29*2*3.14);
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        .word {
+            font-size: 12px;
+            text-align: center;
+            line-height: 58px;
+            opacity: 0;
+        }
+        .button.active ~ .loading .word{
+            animation: word .1s ease-in-out 4s forwards
+        }
+        @keyframes word {
+           100% {
+               opacity: 1;
+           }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+            <div class="button">
+                finish
+            </div>
+            <svg class="circle">
+                <circle cx="31" cy="31" r="29"/>
+            </svg>
+            <div class="loading">
+                <span class="word">完成</span>
+            </div>
+            </div>
+            <div class="finished">
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var button = document.getElementsByClassName('button')[0]
+        var loading = document.getElementsByClassName('loading')[0]
+        button.addEventListener('click', () => {
+            if (button.classList.contains('active')) {
+                button.classList.remove('active')
+            } else {
+                button.classList.add('active')
+            }
+            
+        })
+        loading.addEventListener('click', () => {
+            button.classList.remove('active')
+        })
+    </script>
+</body>
+</html>
