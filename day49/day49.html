@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day48
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: green;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .card {
+            backface-visibility: hidden;
+            transform: rotateY(0deg);
+            width: 240px;
+            height: 160px;
+            background: #fff;
+            top: 50%;
+            left: 50%;
+            margin-left: -120px;
+            margin-top: -95px;
+            transform-origin: 50% 50%;
+            position: absolute;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 1s ease-in-out;
+            transform: scale(0.8)
+        }
+        .button {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 20px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: blue;
+        }
+        .index {
+            font-size: 14px;
+            color: #fff;
+            background: gray;
+            position: absolute;
+            top:0px; 
+            right:0px;
+            width: 40px;
+            height: 40px;
+            transform: rotate(45deg) translateY(-28px);
+            z-index: 1
+        }
+        .number {
+            font-size: 14px;
+            color: #fff;
+            position: absolute;
+            right:4px;
+            top:0px;
+            z-index: 2
+        }
+        .card.active {
+            animation: fadeOut 1s ease-in-out forwards;
+            z-index: 1;
+        }
+        .card.inactive {
+            animation: fadeIn 1s ease-in-out forwards;
+            z-index: 2;
+        }
+        .card1 {
+
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);      
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: scale(1);    
+            }
+            to {
+                opacity: 0;
+                transform: scale(1.15);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="map">
+            <div class="card card1 inactive">
+                <div class="index">1</div>
+                <div class="number">1</div>
+                <div style="font-size:14px;text-align: center;padding-top: 40px;;line-height: 20px;">
+                    <span style="font-weight: 700;">The couch</span><br>
+                    If you want to grow, get outside<br>
+                    your comfort zone.
+                </div>
+                <div class="button">
+                   OK
+                </div>
+            </div>
+            <div class="card card2 active">
+                <div class="index"></div>
+                <div class="number">2</div>
+                <div style="font-size:14px;text-align: center;padding-top: 40px;line-height: 20px;">
+                    <span style="font-weight: 700;">Failing is learning</span><br>
+                    Pick yourself up, dust yourself off,<br>
+                    and start again.
+                </div>
+                <div class="button">
+                   OK
+                </div>
+            </div>
+            <div class="card card3 active">
+                    <div class="index">3</div>
+                    <div class="number">3</div>
+                <div style="font-size:14px;text-align: center;padding-top: 40px;line-height: 20px;">
+                    <span style="font-weight: 700;">Flowers and rainbows</span><br>
+                    Always be yourself,<br>
+                    unless you can be a unicorn.
+                </div>
+                <div class="button">
+                   OK
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var button = document.getElementsByClassName('button')
+        var cards = document.getElementsByClassName('card')
+        let active = 0
+        for (let i in button) {
+            let c = button[i]
+            c.addEventListener('click', (el)=> {
+                cards[active].classList.remove('inactive')
+                cards[active].classList.add('active')
+                if (active===2) {
+                    active = 0
+                } else {
+                    active++
+                }
+                cards[active].classList.remove('active')
+                cards[active].classList.add('inactive')
+            })
+        }
+    </script>
+</body>
+</html>
