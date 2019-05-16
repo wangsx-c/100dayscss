@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day48
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: green;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .card {
+            backface-visibility: hidden;
+            transform: rotateY(0deg);
+            width: 240px;
+            height: 360px;
+            background: #fff;
+            top: 50%;
+            left: 50%;
+            margin-left: -120px;
+            margin-top: -180px;
+            transform-origin: 50% 50%;
+            position: absolute;
+        }
+        .item {
+            height: 40px;
+            font-size: 16px;
+            color:#000;
+            position: relative;
+        }
+        .item input {
+            opacity: 0;
+        }
+        .item label {
+        }
+        .item label::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom:0px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .itemcheck:checked ~ span {
+            color: gray;
+        }
+        .item span {
+            line-height: 40px;
+        }
+        .itemcheck:checked ~ .circle {
+            border-color: gray;
+            transform: scale(1.2);
+            opacity: 0;
+            transition: all .5s ease-out ;
+        }
+        .item .circle {
+            border: 1px solid #000;
+            width: 20px;
+            height: 20px;
+            line-height: 40px;
+            display: inline-block;
+            border-radius: 50%;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            margin-top:-10px;
+            transition: all .5s ease-in-out .4s;
+        }
+        .item .mark {
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            margin-top:-5px;
+            stroke: #C8D4D9;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-dasharray: 30 30;
+            stroke-dashoffset: 30;
+            transition: all .5s ease-out;
+        }
+        .itemcheck:checked ~ .mark {
+            stroke-dashoffset: 0;
+            transition: all .5s ease-out .4s;
+        }
+        .title {
+            font-size: 14px;
+            color: #000;
+            text-align: center;
+            margin-top:20px;
+        }
+        .line {
+            height: 1px;
+            width: 80%;
+            margin: 20px auto;
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="card">
+            <div class="title">
+                <span style="font-size:22px">Friday</span><br>
+                March 4, 2016
+            </div>
+            <div class="line"></div>
+            <div class="item">
+                <input type="checkbox" class="itemcheck" id="cb1">
+                <span>Create a list</span>
+                <label for="cb1"></label>
+                <a class="circle"></a>
+                <svg width="15px" height="10px" class="mark">
+                    <polyline points="1,5 6,9 14,1" />
+                </svg>
+            </div>
+            <div class="item">
+                <input type="checkbox"  class="itemcheck" id="cb2">
+                <span>Complete first task</span>
+                <label for="cb2"></label>
+                <a class="circle"></a>
+                <svg width="15px" height="10px" class="mark">
+                    <polyline points="1,5 6,9 14,1" />
+                </svg>
+            </div>
+            <div class="item">
+                <input type="checkbox"  class="itemcheck" id="cb3">
+                <span>Write some CSS code</span>
+                <label for="cb3"></label>
+                <a class="circle"></a>
+                <svg width="15px" height="10px" class="mark">
+                    <polyline points="1,5 6,9 14,1" />
+                </svg>
+            </div>
+            <div class="item">
+                <input type="checkbox"  class="itemcheck" id="cb4">
+                <span>Amaze the world</span>
+                <label for="cb4"></label>
+                <a class="circle"></a>
+                <svg width="15px" height="10px" class="mark">
+                    <polyline points="1,5 6,9 14,1" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        
+    </script>
+</body>
+</html>
