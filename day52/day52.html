@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day51
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: green;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .inputField {
+            height: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -30px;
+            margin-left:-125px;
+            box-shadow: 4px 8px 12px 0 rgba(0,0,0,0.1);
+        }
+        .inputField input {
+            width: 200px;
+            border: none;
+            height: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 0 30px 0 20px;
+        }
+        .inputField embed {
+            position: absolute;
+            top:4px;
+            right:4px;
+            cursor: pointer;
+            z-index: 2
+        }
+        .searchlist {
+            width: 250px;
+            height: 150px;
+            background:#fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: 2px;
+            margin-left:-125px;
+            display: none
+        }
+        .searchlist.active {
+            display: block;
+        }
+        .searchlist .item {
+            font-size: 14px;
+            color:#000;
+            height: 20px;
+            padding-top:20px;
+            margin-left:20px;
+            max-width: 250px
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="inputField">
+            <input oninput="search(this)">
+            <embed src="./search.svg" style="height:20px;width:20px"></embed>
+        </div>
+        <div class="searchlist">
+            <div class="item inputValue"></div>
+            <div class="item Veritatis"></div>
+            <div class="item aliquid"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        
+        console.log(searchlist)
+        function search (el) {
+            var searchlist = document.getElementsByClassName('searchlist')[0]
+            var Veritatis = document.getElementsByClassName('Veritatis')[0]
+            var aliquid = document.getElementsByClassName('aliquid')[0]
+            var inputValue = document.getElementsByClassName('inputValue')[0]
+            if (el.value !== '') {
+                searchlist.classList.add('active')
+                console.log(inputValue)
+                inputValue.innerHTML = el.value
+                aliquid.innerHTML = ('ut aliquid ex ' + el.value + ' vero eos')
+                Veritatis.innerHTML = ('Veritatis et ' + el.value)
+            } else {
+                searchlist.classList.remove('active')
+            }
+
+        }
+    </script>
+</body>
+</html>
