@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day52
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: green;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .line {
+            stroke: white;
+            fill:none;
+            position: absolute;
+            top: 50%;
+            margin-top: -32px;
+            stroke-width: 4px;
+            stroke-linecap: round;
+            animation: line 2.5s linear infinite;
+        }
+        @keyframes line {
+            from {
+                stroke-dasharray: 50 660;
+                stroke-dashoffset: 780;
+            }
+            to {
+                stroke-dasharray: 50 660;
+                stroke-dashoffset: 70;
+            }
+        }
+        .circle {
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left: -16px;
+            margin-top: -16px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            transform: scale(0.5);
+            opacity: 0;
+            animation: circle 2.5s ease-out infinite both;
+        }
+        @keyframes circle {
+            0%,50% {
+                opacity: 1;
+                transform: scale(0);
+            }
+            70%,100% {
+                opacity: 0;
+                transform: scale(.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="circle"></div>
+        <svg width="400px" height="65px" viewBox="0 0 400 65" class="line">
+            <path d="M0,4.67941475 C0,4.67941475 42.5049504,21.0558251 95.0896109,21.0558243 C147.674271,21.0558235 149.896403,2 196.011077,2 C242.125751,2 242.386923,58.3217419 200.000004,58.3217392 C157.613085,58.3217365 163.18433,13.5133498 212.755329,13.5133498 C262.326328,13.5133498 284.162205,38.9236796 335.140774,38.9236794 C386.119343,38.9236791 399.999996,30.1608696 399.999996,30.1608696"></path>
+        </svg>
+    </div>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>
