@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day52
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: green;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .counter {
+            width: 120px;
+            border-radius: 25px;
+            background: #fff;
+            height: 40px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-top:-20px;
+            margin-left:-60px;
+        }
+        .minus {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+            left:0px;
+            cursor: pointer;
+        }
+        .minus::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background: red;
+            top: 50%;
+            position: absolute;
+            left: 50%;
+            margin-left: -10px;
+        }
+        .plus {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            cursor: pointer;
+        }
+        .plus::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background: green;
+            top: 50%;
+            position: absolute;
+            right: 50%;
+            margin-right: -10px;
+        }
+        .plus::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background: green;
+            top: 50%;
+            position: absolute;
+            right: 50%;
+            margin-right: -10px;
+            transform: rotate(90deg)
+        }
+        .number {
+            font-size: 14px;
+            color: #000;
+            width: 60px;
+            margin: 0 auto;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .last {
+            animation: last .3s ease-in-out forwards;
+            
+        }
+        .current {
+            animation: current .3s ease-in-out .3s forwards;
+            opacity: 0;
+        }
+        @keyframes last {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+        @keyframes current {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .number {
+            position: relative;
+        }
+        .number div {
+            position: absolute;
+            width: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="counter">
+            <div class="minus"></div>
+            <div class="number">
+                <div class="last">0</div>
+                <div class="current">0</div>
+            </div>
+            <div class="plus"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var plus = document.getElementsByClassName('plus')[0]
+        var minus = document.getElementsByClassName('minus')[0]
+        var number = document.getElementsByClassName('number')[0]
+        plus.addEventListener('click', () => {
+            var last = document.getElementsByClassName('last')[0]
+            var current = document.getElementsByClassName('current')[0]
+            let cnumber = Number(current.innerHTML)
+            number.removeChild(current)
+            number.removeChild(last)
+            let lnode = document.createElement('div')
+            lnode.classList.add('last')
+            lnode.innerHTML = cnumber
+            number.appendChild(lnode)
+            let cnode = document.createElement('div')
+            cnode.classList.add('current')
+            cnode.innerHTML = cnumber + 1
+            number.appendChild(cnode)
+
+        })
+        minus.addEventListener('click', () => {
+            var last = document.getElementsByClassName('last')[0]
+            var current = document.getElementsByClassName('current')[0]
+            let cnumber = Number(current.innerHTML)
+            number.removeChild(current)
+            number.removeChild(last)
+            let lnode = document.createElement('div')
+            lnode.classList.add('last')
+            lnode.innerHTML = cnumber
+            number.appendChild(lnode)
+            let cnode = document.createElement('div')
+            cnode.classList.add('current')
+            cnode.innerHTML = cnumber - 1
+            number.appendChild(cnode)
+        })
+    </script>
+</body>
+</html>
