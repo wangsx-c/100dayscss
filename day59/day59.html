@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day59
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            background: #75C1E8;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .center {
+            position: absolute;
+            width: 320px;
+            height: 240px;
+            top: 80px;
+            left: 40px;
+            background: #fff;
+            box-shadow: 4px 8px 12px 0 rgba(0,0,0,0.3);
+        }
+        .tabs {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: #3D4D5E;
+        }
+        input {
+            opacity: 0;
+        }
+        label {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            display: inline-block;
+            color:#fff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .label1 {
+
+        }
+        .label2 {
+            left: 40px;
+        }
+        .panel {
+            background: #fff;
+            height: 100px;
+            position: absolute;
+            z-index: 5;
+            top:40px;
+            bottom:0px;
+            font-size: 12px;
+            left: 20px;
+        }
+        .panel1 {
+            opacity: 0;
+        }
+        .panel2 {
+            opacity: 0;
+        }
+        #label1:checked ~ .panel1{
+            opacity: 1;
+        }
+        #label2:checked ~ .panel2{
+            opacity: 1;
+        }
+        .panel span {
+            width: 200px;
+            display: block;
+            height: 4px;
+            background: #E9E9E9;
+            margin: 6px 0;
+        }
+
+        .panel p {
+            margin: 17px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="center">
+                <input id="label1" type="radio" name="rd">
+                <input id="label2" type="radio" name="rd">
+                <div class="tabs">
+                        <label for="label1" class="label1">页面1</label>
+                        <label for="label2"  class="label2">页面2</label>
+                </div>
+                <div class="panel panel1">
+                    <p>Settings1</p>
+                    <span style="width: 250px;"></span>
+                        <span style="width: 270px;"></span>
+                        <span style="width: 235px;"></span>
+                        <span style="width: 260px;"></span>
+                        <span style="width: 53px;"></span>
+                </div>
+                <div class="panel panel2">
+                    <p>Settings2</p>
+                    <span style="width: 262px;"></span>
+                        <span style="width: 234px;"></span>
+                        <span style="width: 246px;"></span>
+                        <span style="width: 260px;"></span>
+                        <span style="width: 144px;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
