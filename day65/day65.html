@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day65
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+        }
+        .stage {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            top: 60px;
+            left: 60px;
+            background: #1d4253;
+            background: -moz-linear-gradient(top, #1d4253 0%, #6bb5c4 100%); 
+            background: -webkit-linear-gradient(top, #1d4253 0%,#6bb5c4 100%);
+            background: linear-gradient(to bottom, #1d4253 0%,#6bb5c4 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d4253', endColorstr='#6bb5c4',GradientType=0 );
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .star {
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+        }
+        .shooting-star {
+            background-image: url('./shooting-star.png');
+            width: 120px;
+	        height: 2px;
+            background-size: 100% 100%;
+	        transform: rotate(20deg);
+            animation: shooting 10s ease-in-out infinite
+        }
+        @keyframes shooting {
+            0% {
+                transform: rotate(20deg); 
+            }
+            10% {
+                transform: rotate(20deg) translateX(300px);
+            }
+            100% {
+                transform: rotate(20deg) translateX(500px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="stage">
+            <div class="shooting-star"></div>
+        </div>
+    </div>
+    <script>
+        var stage = document.getElementsByClassName('stage')[0]
+        for (let i=0; i<99; i++) {
+            let top = Math.floor(Math.random()*280)
+            let left = Math.floor(Math.random()*280)
+            let star = document.createElement('div')
+            star.classList.add('star')
+            star.style.top = top + 'px'
+            star.style.left = left + 'px'
+            stage.appendChild(star)
+        }
+    </script>
+</body>
+</html>
