@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day69
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: #DE4738;
+            user-select: none;
+        }
+        .pixel {
+            width: 18px;
+            height: 18px;
+            font-size: 0px;
+            display: inline-block;
+            float: left;
+            border: 1px solid #E24E3F;
+            cursor: pointer;
+            position: relative;
+        }
+        .pixel:hover {
+            background: #E24E3F;
+        }
+        label {
+            top:-1px;
+            bottom:-1px;
+            left:-1px;
+            right:-1px;
+            display: inline-block;
+            cursor: pointer;
+            position: absolute;
+        }
+        input:checked ~ label {
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+    </div>
+    <script>
+        var frame = document.getElementsByClassName('frame')[0]
+        for (let i = 0; i<400; i++) {
+            let c = document.createElement('div')
+            c.classList.add('pixel')
+            let u = document.createElement('input')
+            u.setAttribute('id', 'input-' + i)
+            u.setAttribute('type', 'checkbox')
+            if (i == 130 || i == 131 || i == 149 || i == 150 || i == 151 || i == 152 || i == 168 || i == 169 || i == 170 || i == 171 || i == 172 || i == 173 || i == 187 || i == 188 || i == 190 || i == 191 || i == 193 || i == 194 || i == 207 || i == 208 || i == 209 || i == 210 || i == 211 || i == 212 || i == 213 || i == 214 || i == 229 || i == 232 || i == 248 || i == 250 || i == 251 || i == 253 || i == 267 || i == 269 || i == 272 || i == 274) {
+                u.setAttribute('checked', 'checked')
+            }
+            u.style.display = 'none'
+            c.appendChild(u)
+            let l = document.createElement('label')
+            l.setAttribute('for', 'input-' + i)
+            c.appendChild(l)
+            frame.appendChild(c)
+        }
+    </script>
+</body>
+</html>
