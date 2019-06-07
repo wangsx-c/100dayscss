@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day71
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: #DE4738;
+            user-select: none;
+            perspective: 400px
+        }
+        .square {
+            width: 20px;
+            height:20px;
+            float:left;
+        }
+        .mouseMover {
+            width: 20px;
+            height:20px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-top:-10px;
+            margin-left:-10px;
+            background: greenyellow;
+            border-radius: 50%;
+            transition: all .3s ease-out
+        }
+        .mouseMover::after {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height:16px;
+            border-radius: 50%;
+            border: 2px solid greenyellow;
+            transform-origin: 50% 50%;
+            animation: mouseMover 2s ease-in-out infinite
+        }
+        @keyframes mouseMover{
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="mouseMover"></div>
+    </div>
+    <script>
+        var frame = document.getElementsByClassName('frame')[0]
+        var mouseMover = document.getElementsByClassName('mouseMover')[0]
+        for (let i = 0; i<400; i++) {
+            let temp = document.createElement('div')
+            temp.classList.add('square')
+            temp.addEventListener('mouseover', () => {
+                let squareLeft = temp.offsetLeft
+                let squareTop = temp.offsetTop
+                let mouseMoverLeft = mouseMover.offsetLeft
+                let mouseMoverTop = mouseMover.offsetTop
+                mouseMover.style.transform = 'translate(' + (squareLeft -mouseMoverLeft)  + 'px,' + (squareTop -mouseMoverTop) + 'px)'
+            })
+            frame.appendChild(temp)
+        }
+        frame.addEventListener('mouseout', () => {
+            mouseMover.style.transform = 'translate(' + 0 + 'px,' + 0 + 'px)'
+        })
+    </script>
+</body>
+</html>
