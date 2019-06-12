@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day75
+    </title>
+    <style>
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: #263A4D;
+            user-select: none;
+            perspective: 400px
+        }
+        .wave-front {
+            top: 335px;
+            background: #7EB3E6;
+            position: absolute;
+            height: 150px;
+            width: 500px;
+            left: -50px;
+            z-index: 3;
+            transform: translateX(40px);
+            animation: frontMove 10s linear infinite alternate;
+        }
+        .wave-front .circle {
+            background: #7EB3E6;
+            top: -26px;
+        }
+        .wave-front .circle:nth-child(2n+2) {
+            background: #5D90BF;
+            top: -26px;
+        }
+        .wave-middle {
+            top: 280px;
+            background: #5D90BF;
+            position: absolute;
+            height: 150px;
+            width: 500px;
+            left: -50px;
+            z-index: 2;
+            transform: translateX(-40px);
+            animation: middleMove 10s linear infinite alternate;
+        }
+        .wave-middle .circle {
+            background: #5D90BF;
+            top: -26px;
+        }
+        .wave-middle .circle:nth-child(2n+2) {
+            background: #406384;
+            top: -26px;
+        }
+        .wave-back {
+            top: 225px;
+            background: #406384;
+            position: absolute;
+            height: 150px;
+            width: 500px;
+            left: -50px;
+            animation: backMove 10s linear infinite alternate;
+        }
+        .wave-back .circle {
+            background: #406384;
+            top: -26px;
+        }
+        .wave-back .circle:nth-child(2n+2) {
+            background: #263A4D;
+            top: -26px;
+        }
+        .circle {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background: #fff;
+            float: left;
+            background: #5D90BF
+        }
+        .circle:nth-child(2n) {
+            background: #406384
+        }
+        @keyframes frontMove {
+            from {
+                transform: translateX(40px)
+            }
+            to {
+                transform: translateX(-40px)
+            }
+        }
+        @keyframes backMove {
+            from {
+                transform: translateX(0px)
+            }
+            to {
+                transform: translateX(40px)
+            }
+        }
+        @keyframes middleMove {
+            from {
+                transform: translateX(-40px)
+            }
+            to {
+                transform: translateX(40px)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="wave-front">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <div class="wave-middle">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <div class="wave-back">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
