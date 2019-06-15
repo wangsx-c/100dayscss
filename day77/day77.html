@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day77
+    </title>
+    <style id="stylelist">
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: #263A4D;
+            user-select: none;
+            perspective: 400px
+        }
+        .leaf{
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 2px 50px;
+            opacity: 1;
+            margin-top:-25px;
+            margin-left:-25px;
+            transition: all .5s ease-in-out;
+            box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        }
+        .leaf:nth-child(2n+2) {
+            z-index: 2;
+        }
+        .pistil {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: yellow;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-top:-10px;
+            margin-left:-10px;
+            z-index: 3;
+            animation: dot 7s linear infinite
+        }
+        .flower {
+            transform-origin: 50% 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            animation: rotate 7s ease infinite
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0);
+            }
+            60% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes dot {
+            12% {
+                transform: scale(0);
+            }
+            20% {
+                transform: scale(1.1);
+            }
+            25% {
+                transform: scale(0.95);
+            }
+            30%, 55% {
+                transform: scale(1);
+            }
+            57.9% {
+                transform: scale(1.1);
+            }
+            70% {
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="flower">
+            <div class="pistil"></div>
+        </div>
+    </div>
+    <script>
+        var stylelist = document.getElementById('stylelist')
+        var flower = document.getElementsByClassName('flower')[0]
+        for (let i = 0; i<=15; i++) {
+            var percentIn = ( i * (45 / 6) ) + 10
+            var percentOut = ( i * (10 / 6) ) + 65
+            var rotateAngle = i * 22.5
+            var boxs = 'box-shadow: -5px -5px 1px 0 rgba(0,0,0,0.06)'
+            var style = '@keyframes leaf-' + i + '{'
+            style = style + '0%,100% {rotate(' + rotateAngle + 'deg ) translateY(0);' + boxs+ '}'
+            style = style + '60% {rotate(' + rotateAngle + 'deg) transform:translate(-35px, -35px) scale(2);' + boxs+ '}'
+            style = style + percentIn + '% {transform: rotate(' + rotateAngle + 'deg ) translate(-35px, -35px) scale(2);' + boxs+ '}'
+            style = style + percentOut + '% {transform:rotate(' + rotateAngle + 'deg ) translate(-35px, -35px) scale(2)};' + boxs+ ' }'
+            stylelist.innerText = stylelist.innerText + style
+            // 生成页片
+            var leaf = document.createElement('div')
+            leaf.style.transform = 'rotate(' + rotateAngle + 'deg ) translateY(0)'
+            leaf.style.animation = 'leaf-' + i + ' 7s ease infinite'
+            leaf.classList.add('leaf')
+            leaf.classList.add('leaf-' + i)
+            flower.appendChild(leaf)
+        }
+    </script>
+</body>
+</html>
