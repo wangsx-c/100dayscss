@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day81
+    </title>
+    <style id="stylelist">
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: gray;
+            user-select: none;
+            perspective: 400px;
+        }
+        .title {
+            height: 30px;
+            font-size: 16px;
+            background:blue;
+            color:#fff;
+            line-height: 30px;
+            border-radius: 4px 4px 0px 0px;
+        }
+        .card {
+            width: 110px;
+            height: 160px;
+            text-align: center;
+            display: inline-block;
+            background: #fff;
+            border-radius: 4px 4px 0px 0px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            transform-origin: 50% 50%;
+            transition: all .4s ease
+        }
+        .lr {
+            width: 80px;
+            height: 2px;
+            background:grey;
+            margin: 0 auto;
+            margin-top:10px;
+        }
+        .sm {
+            width: 60px;
+            height: 2px;
+            margin: 0 auto;
+            margin-top:10px;
+            background:grey;
+        }
+        .card + .card {
+            margin-left:16px
+        }
+        .money {
+            font-size: 24px;
+        }
+        .valid {
+            font-size: 12px;
+        }
+        .progress {
+            width: 380px;
+            height: 180px;
+            margin: 0 auto;
+            margin-top:20px;
+            background: #fff;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+        }
+        .progress a {
+            font-size: 14px;
+            padding-left:20px;
+            padding-right:20px;
+        }
+        .pg {
+            height: 10px;
+            border-radius: 6px;
+            background: grey;
+            margin: 0px 20px;
+            margin-top: 4px
+        }
+        .user, .memory, .project {
+            height: 18px;
+            clear: both;
+            padding-top:20px;
+        }
+        .card1:hover {
+            transform: scale(1.1)
+        }
+        .inner {
+            background: blue;
+            width: 0px;
+            height: 100%;
+            border-radius: 6px;
+            transition: all .4s ease
+        }
+        .card1:hover ~ .progress .userP .inner {
+            width: 30%
+        }
+        .card1:hover ~ .progress .memoryP .inner {
+            width: 50%
+        }
+        .card1:hover ~ .progress .projectP .inner {
+            width: 70%
+        }
+        .card2:hover {
+            transform: scale(1.1)
+        }
+        .card2:hover ~ .progress .userP .inner{
+            width: 50%
+        }
+        .card2:hover ~ .progress .memoryP .inner{
+            width: 70%
+        }
+        .card2:hover ~ .progress .projectP .inner{
+            width: 50%
+        }
+        .card3:hover {
+            transform: scale(1.1)
+        }
+        .card3:hover ~ .progress .userP .inner{
+            width: 100%
+        }
+        .card3:hover ~ .progress .memoryP .inner{
+            width: 100%
+        }
+        .card3:hover ~ .progress .projectP .inner{
+            width: 100%
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="card card1" style="margin-left:20px;margin-top:20px">
+            <div class="title">Basic</div>
+            <div class="money">$5</div>
+            <div class="valid">per month</div>
+            <div class="lr"></div>
+            <div class="sm"></div>
+            <div class="lr"></div>
+            <div class="sm"></div>
+        </div>
+        <div class="card card2">
+            <div class="title">Pro</div>
+            <div class="money">$10</div>
+            <div class="valid">per month</div>
+            <div class="lr"></div>
+            <div class="sm"></div>
+            <div class="lr"></div>
+            <div class="sm"></div>
+        </div>
+        <div class="card card3">
+            <div class="title">Premium</div>
+            <div class="money">$20</div>
+            <div class="valid">per month</div>
+            <div class="lr"></div>
+            <div class="sm"></div>
+            <div class="lr"></div>
+            <div class="sm"></div>
+        </div>
+        <div class="progress">
+            <div class="user">
+                <a style="float:left">5 Users</a>
+                <a style="float:right">100 Users</a>
+            </div>
+            <div class="pg userP">
+                <div class="inner"></div>
+            </div>
+            <div class="memory">
+                <a style="float:left">20 G</a>
+                <a style="float:right">200 G</a>
+            </div>
+            <div class="pg memoryP">
+                <div class="inner"></div>
+            </div>
+            <div class="project">
+                <a style="float:left">1 Project</a>
+                <a style="float:right">50 Project</a>
+            </div>
+            <div class="pg projectP">
+                <div class="inner"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
