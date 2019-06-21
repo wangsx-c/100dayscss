@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day84
+    </title>
+    <style id="stylelist">
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: gray;
+            user-select: none;
+            perspective: 400px;
+        }
+        .circle {
+            width: 200px;
+            height: 200px;
+            border: 2px dotted #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            margin-top: -100px;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            /* animation: circle 5s ease infinite */
+        }
+        @keyframes circle {
+            0% {
+                transform: scale(0) translate(-200px, -200px);
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(3.5) translate(0, 0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+    </div>
+    <script>
+        var frame = document.getElementsByClassName('frame')[0]
+        var stylelist = document.getElementById('stylelist')
+        for (let i = 0; i < 50; i++) {
+            var circle = document.createElement('div')
+            circle.classList.add('circle')
+            circle.classList.add('circle-' + i)
+            frame.appendChild(circle)
+            let s = '.circle-' + i + ' {animation: circle 10s ' + (i/5) + 's ease infinite}'
+            stylelist.innerHTML = stylelist.innerHTML + s
+        }
+    </script>
+</body>
+</html>
