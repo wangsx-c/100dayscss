@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day85
+    </title>
+    <style id="stylelist">
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: gray;
+            user-select: none;
+            perspective: 400px;
+        }
+        .ellipse {
+            width: 100px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -50px;
+            border: 1px solid #fff;
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        
+    </div>
+    <script>
+        var stylelist = document.getElementById('stylelist')
+        var frame = document.getElementsByClassName('frame')[0]
+        for (let i=1; i<=18; i++) {
+            var ellipse = document.createElement('div')
+            ellipse.classList.add('ellipse')
+            ellipse.classList.add('ellipse-' + i)
+            let an = '.ellipse-' + i+ '{animation: ellipse-' + i + ' 5s ease-in-out infinite;}'
+            stylelist.innerHTML = stylelist.innerHTML + an
+            let kf = '@keyframes ellipse-' + i + '{'
+            kf += '0% {transform:rotate(' + 18* (i-1) +'deg);border-radius: 50%;}'
+            kf += '50% {transform:rotate(0deg) scaleX(' + (2/0.6) + ');border-radius: 0%;}'
+            kf += '100% {transform:rotate(' + (-1 * 18* (i-1)) +'deg);border-radius: 50%;}'
+            kf += '}'
+            stylelist.innerHTML += kf
+            frame.appendChild(ellipse)
+        }
+    </script>
+</body>
+</html>
