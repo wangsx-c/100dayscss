@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day86
+    </title>
+    <style id="stylelist">
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: gray;
+            user-select: none;
+            perspective: 400px;
+        }
+        .btn {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -27px;
+            margin-left: -27px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 3
+        }
+        .btn-inner {
+            width: 54px;
+            height: 54px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -27px;
+            margin-left: -27px;
+            background: #fff;
+            background: transparent;
+            border-radius: 50%;
+            transition: all .4s ease
+        }
+        .btn.active ~ .btn-inner {
+            background: #fff;
+        }
+        .btn-inner-green {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -10px;
+            background: transparent;
+            border-radius: 50%;
+            transition: all .4s ease;
+            background: green;
+            opacity: 0;
+            transform: scale(2);
+        }
+        .btn.active ~ .btn-inner-green {
+            transform: scale(0.8);
+            opacity: 1;
+            box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.2), inset 2px 2px 4px 0 rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="btn"></div>
+        <div class="btn-inner"></div>
+        <div class="btn-inner-green"></div>
+    </div>
+    <script>
+        var btn = document.getElementsByClassName('btn')[0]
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('active')) {
+                btn.classList.remove('active')
+            } else {
+                btn.classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>
