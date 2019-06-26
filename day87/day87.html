@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day87
+    </title>
+    <style id="stylelist">
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: gray;
+            user-select: none;
+            cursor: pointer;
+            z-index: 99999;
+        }
+        .static-mic {
+            position: absolute;
+            width: 24px;
+            height: 66px;
+            top: 50%;
+            left: 50%;
+            margin-left: -12px;
+            margin-top: -33px;
+        }
+        .static-mic .body {
+            width: 24px;
+            height: 52px;
+            background: #fff;
+            border-radius: 12px;
+        }
+        .static-mic .foot_1 {
+            position: absolute;
+            width: 4px;
+            height: 15px;
+            top: 51px;
+            left: 10px;
+            background: #fff;
+        }
+        .static-mic .foot_2 {
+            position: absolute;
+            width: 24px;
+            height: 4px;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            border-radius: 2px;
+        }
+        .static-circle {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            top: 50%;
+            left: 50%;
+            margin-top: -54px;
+            margin-left: -54px;
+            border: 4px solid #fff;
+            border-radius: 50%
+        }
+        .frame.active .static-circle {
+            opacity: 0;
+        }
+        .frame.active .static-mic {
+            animation: micdismiss .8s ease forwards
+        }
+        @keyframes micdismiss {
+            0% {
+                transform: scale(1)
+            }
+            30% {
+                transform: scale(1.3)
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+        .frame.active .run-dot {
+            animation: dotsshow .8s ease .8s forwards
+        }
+        @keyframes dotsshow {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+        .run-dot {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            transform: scale(0);
+            text-align: center
+        }
+        .dot {
+            position: relative;
+            top:50%;
+            margin-top: -5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            display: inline-block;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+        @keyframes dotwave {
+            0%, 100% {
+                transform: translateY(0px)
+            }
+            25% {
+                transform: translateY(10px)
+            }
+            75% {
+                transform: translateY(-10px)
+            }
+        }
+        .dot_1 {
+            animation: dotwave 1s linear infinite
+        }
+        .dot_2 {
+            animation: dotwave 1s linear -0.2s infinite
+        }
+        .dot_3 {
+            animation: dotwave 1s linear -0.4s infinite
+        }
+        .run-circle {
+            position: absolute;
+            height: 108px;
+            width: 108px;
+            top: 50%;
+            left: 50%;
+            margin-top: -54px;
+            margin-left: -54px;
+            opacity: 0;
+        }
+        .frame.active .run-circle {
+            opacity: 1;
+            animation: runcirclerotate 5s linear infinite
+        }
+        @keyframes runcirclerotate {
+            0% {
+                transform: rotate(0deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+        .run-circle svg{
+            fill: none;
+            stroke: #fff;
+            stroke-width: 4px;
+            stroke-dasharray: 320.28000000000003px;
+            stroke-dashoffset: 0px;
+            animation: runcrcle 5s linear infinite
+        }
+        @keyframes runcrcle{
+            from {
+                stroke-dashoffset: 0px;
+            }
+            to {
+                stroke-dashoffset: -640.28000000000003px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+            <div class="static-circle">
+            </div>
+            <div class="static-mic">
+                <div class="body"></div>
+                <div class="foot_1"></div>
+                <div class="foot_2"></div>
+            </div>
+            <div class="run-dot">
+                <div class="dot dot_1"></div>
+                <div class="dot dot_2"></div>
+                <div class="dot dot_3"></div>
+            </div>
+            <div class="run-circle">
+                <svg width="108px" height="108px" viewBox="0 0 108 108">
+                    <circle class="circle" cx="54" cy="54" r="51"/>
+                </svg>
+            </div>
+        </div>
+    <script>
+        var frame = document.getElementsByClassName('frame')[0]
+        frame.addEventListener('click', ()=> {
+            console.log('233333')
+            if (frame.classList.contains('active')) {
+                frame.classList.remove('active')
+            } else {
+                frame.classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>
