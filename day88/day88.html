@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day88
+    </title>
+    <style id="stylelist">
+        .frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -160px;
+            margin-left: -160px;
+            border-radius: 2px;
+            box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            color: #333;
+            font-family: 'Open Sans', Helvetica, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 0px;
+            background: black;
+            user-select: none;
+        }
+        .eyes {
+            width: 160px;
+            height: 160px;
+            border-radius: 160px 0px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -80px;
+            margin-left: -80px;
+            transform: rotate(45deg);
+            overflow: hidden;
+        }
+        .eyes .ball {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: gray;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -40px;
+            margin-left: -40px;
+            animation: eyesBallMove 5s linear infinite;
+        }
+        .eyes .ball .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #617983;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -10px;
+        }
+        .eyelash {
+            text-align: center
+        }
+        @keyframes eyesBallMove {
+            0%,20% ,70%,80%,90%,100%{
+                transform: rotate(-45deg) translate(0px)
+            }
+            30%,40% {
+                transform: rotate(-45deg) translateY(10px) translateX(-50px)
+            }
+            50%, 60% {
+                transform: rotate(-45deg) translateY(10px) translateX(50px)
+            }
+        }
+        .eyelash-top {
+            position: absolute;
+            z-index: 2;
+            width: 240px;
+            height: 106px;
+            top: 125px;
+            left: 80px;
+            transform: translateY(-60px);
+            animation: eyelash-top 5s linear infinite;
+        }
+        .eyelash-bottom {
+            animation: eyelash-bottom 5s linear infinite;
+            position: absolute;
+            z-index: 2;
+            width: 240px;
+            height: 106px;
+            bottom: 125px;
+            left: 80px;
+            transform: rotate(180deg) translateY(-60px);
+        }
+        @keyframes eyelash-top {
+            0%,10%,18%, 26%,34%, 48%,56%, 76%, 84% {
+                transform: translateY(-60px);
+            }
+            14%, 30%, 52%, 80% {
+                transform: translateY(0);
+            }
+        }
+        @keyframes eyelash-bottom {
+            0%,10%,18%, 26%,34%, 48%,56%, 76%, 84% {
+                transform: rotate(180deg) translateY(-60px);
+            }
+            14%, 30%, 52%, 80% {
+                transform: rotate(180deg) translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <div class="eyelash eyelash-top">
+            <svg width="240px" height="106px" viewBox="0 0 240 106">
+                <path d="M239.461093,106 L240,106 L240,0 L0,0 L0,106 L0.538906982,106 C5.9904782,95.5378089 52.3717687,81 120,81 C187.628231,81 234.009522,95.5378089 239.461093,106 Z" class="lid"></path>  
+            </svg>
+        </div>
+        <div class="eyes">
+            <div class="ball">
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="eyelash eyelash-bottom">
+            <svg width="240px" height="106px" viewBox="0 0 240 106">
+                <path d="M239.461093,106 L240,106 L240,0 L0,0 L0,106 L0.538906982,106 C5.9904782,95.5378089 52.3717687,81 120,81 C187.628231,81 234.009522,95.5378089 239.461093,106 Z" class="lid"></path>  
+            </svg>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
